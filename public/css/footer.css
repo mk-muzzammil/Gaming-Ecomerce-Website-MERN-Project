@@ -1,0 +1,16 @@
+.site-footer {
+  background-color: #000;
+  color: #fff;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.site-footer .social-media a {
+  color: #fff;
+  margin: 0 0.5em;
+  font-size: 1.5em;
+}
+
+.site-footer .social-media a:hover {
+  color: #ff6600;
+}
