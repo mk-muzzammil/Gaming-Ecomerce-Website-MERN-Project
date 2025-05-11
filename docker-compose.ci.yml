@@ -9,7 +9,7 @@ services:
     container_name: ecommerce-app-ci
     restart: always
     ports:
-      - "3001:3000"
+      - "3100:3000"
     env_file:
       - .env
     networks:
