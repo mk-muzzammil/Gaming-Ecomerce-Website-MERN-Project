@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout SCM') {
             steps {
-                git url: 'https://github.com/thatisawais/gaming-store.git', branch: 'master'
+                git url: 'https://github.com/mk-muzzammil/Gaming-Ecomerce-Website-MERN-Project.git', branch: 'master'
             }
         }
 
@@ -19,10 +19,10 @@ pipeline {
                 script {
                     sh '''
                         cat > .env << EOF
-CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
-CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
-CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
-EOF
+                        CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
+                        CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
+                        CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
+                        EOF
                     '''
                 }
             }
