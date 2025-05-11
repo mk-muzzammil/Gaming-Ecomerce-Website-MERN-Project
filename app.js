@@ -18,11 +18,12 @@ const multer = require("multer");
 const fs = require("fs");
 const cloudinary = require("./util/cloudinaryConfig");
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
+
 // ================================Session Store Setting ===================
 //by this our sessions will be stored in the databse
 const store = new MongoDbStore({
-  uri: "mongodb://localhost:27017/Shop",
-  collection: "sessions",
+  uri: 'mongodb+srv://muzzammil:admin@cluster0.cqffqdi.mongodb.net/Shop?retryWrites=true&w=majority&appName=Cluster0',
+  collection: 'sessions'
 });
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -137,7 +138,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect("mongodb://localhost:27017/Shop")
+  .connect("mongodb+srv://muzzammil:admin@cluster0.cqffqdi.mongodb.net/Shop?retryWrites=true&w=majority&appName=Cluster0")
   .then((result) => {
     app.listen(3000);
     console.log("Connected to Mongo Db Local Host ");
