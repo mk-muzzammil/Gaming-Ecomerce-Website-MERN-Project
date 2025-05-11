@@ -13,7 +13,7 @@
             <% } %>
 
             <div class="form-control">
-                <label for="email">Email</label>
+                <label for="email">Your Email</label>
                 <input type="text" name="email" id="email" value="<%= oldInput.email %>" class="<%= validationErrors.find(err=> err.path ==='email') ? 'invalid' :'' %>">
             </div>
             <div class="form-control">
