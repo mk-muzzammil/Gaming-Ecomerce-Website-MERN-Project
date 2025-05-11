@@ -1,15 +1,15 @@
-version: '3.8'
+version: "3.8"
 
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    image: muzzammil759/ecomerce-app-ci:latest     # Unique CI image
-    container_name: ecommerce-app-ci               # Unique container name
+    image: muzzammil759/ecomerce-app-ci:latest
+    container_name: ecommerce-app-ci
     restart: always
     ports:
-      - "3100:3000"                                 # Avoid port conflict with Part-I
+      - "3001:3000"
     env_file:
       - .env
     networks:
