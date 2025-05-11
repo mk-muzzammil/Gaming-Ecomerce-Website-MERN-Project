@@ -137,7 +137,9 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect("mongodb://localhost:27017/Shop")
+  .connect(
+    "mongodb+srv://muzzammil:admin@cluster0.cqffqdi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  )
   .then((result) => {
     app.listen(3000);
     console.log("Connected to Mongo Db Local Host ");

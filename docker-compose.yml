@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: muzzammil759/ecomerce-app-ci:latest     # Unique CI image
+    container_name: ecommerce-app-ci               # Unique container name
+    restart: always
+    ports:
+      - "3100:3000"                                 # Avoid port conflict with Part-I
+    env_file:
+      - .env
+    networks:
+      - ci-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  ci-network:
+    driver: bridge
