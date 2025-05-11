@@ -1,49 +1,25 @@
 version: '3.8'
 
 services:
-  # Node.js application service
   app:
-    image: muzzammil759/ecomerce-app:latest
-    container_name: ecommerce-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: muzzammil759/ecomerce-app-ci:latest 
+    container_name: ecommerce-app-ci             
     restart: always
     ports:
-      - "3000:3000"
+      - "3100:3000"                               
     env_file:
       - .env
     networks:
-      - app-network
+      - ci-network
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
-
-  # Nginx reverse proxy
-  nginx:
-    image: nginx:stable-alpine
-    container_name: nginx-proxy
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    depends_on:
-      - app
-    networks:
-      - app-network
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-
-volumes:
-  nginx_data:
-    driver: local
 
 networks:
-  app-network:
+  ci-network:
     driver: bridge
